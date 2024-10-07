@@ -1,7 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 
-import { EmojiData } from '@ctrl/ngx-emoji-mart/ngx-emoji';
+import { EmojiData } from '@rubSR/ctrl-ngx-emoji-mart/ngx-emoji';
 
 @Injectable({ providedIn: 'root' })
 export class EmojiFrequentlyService {
@@ -27,15 +27,19 @@ export class EmojiFrequentlyService {
     'heart',
     'poop',
   ];
-  constructor(@Inject(PLATFORM_ID) private platformId: string) {}
+
+  constructor(@Inject(PLATFORM_ID) private platformId: string) {
+  }
+
   init() {
     this.frequently = JSON.parse(
       (isPlatformBrowser(this.platformId) &&
         localStorage.getItem(`${this.NAMESPACE}.frequently`)) ||
-        'null',
+      'null',
     );
     this.initialized = true;
   }
+
   add(emoji: EmojiData) {
     if (!this.initialized) {
       this.init();
@@ -53,6 +57,7 @@ export class EmojiFrequentlyService {
       localStorage.setItem(`${this.NAMESPACE}.frequently`, JSON.stringify(this.frequently));
     }
   }
+
   get(perLine: number, totalLines: number) {
     if (!this.initialized) {
       this.init();

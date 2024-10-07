@@ -1,4 +1,4 @@
-import { Emoji, EmojiComponent, EmojiData, EmojiService } from '@ctrl/ngx-emoji-mart/ngx-emoji';
+import { Emoji, EmojiComponent, EmojiData, EmojiService } from '@rubSR/ctrl-ngx-emoji-mart/ngx-emoji';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -96,7 +96,8 @@ export class PreviewComponent implements OnChanges {
   emojiData: Partial<EmojiData> = {};
   listedEmoticons?: string[];
 
-  constructor(public ref: ChangeDetectorRef, private emojiService: EmojiService) {}
+  constructor(public ref: ChangeDetectorRef, private emojiService: EmojiService) {
+  }
 
   ngOnChanges() {
     if (!this.emoji) {

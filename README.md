@@ -2,7 +2,7 @@
 
 # ngx-emoji-mart
 
-[![npm](https://badge.fury.io/js/%40ctrl%2Fngx-emoji-mart.svg)](https://www.npmjs.org/package/@ctrl/ngx-emoji-mart)
+[![npm](https://badge.fury.io/js/%40ctrl%2Fngx-emoji-mart.svg)](https://www.npmjs.org/package/@rubSR/ctrl-ngx-emoji-mart)
 [![codecov](https://img.shields.io/codecov/c/github/scttcper/ngx-emoji-mart.svg)](https://codecov.io/github/scttcper/ngx-emoji-mart)
 
 **DEMO**: https://ngx-emoji-mart.vercel.app
@@ -12,26 +12,26 @@ This project is a port of [emoji-mart](https://github.com/missive/emoji-mart) by
 ## Installation
 
 ```sh
-npm install @ctrl/ngx-emoji-mart
+npm install @rubSR/ctrl-ngx-emoji-mart
 # Or if you're using yarn
-yarn add @ctrl/ngx-emoji-mart
+yarn add @rubSR/ctrl-ngx-emoji-mart
 # Or if you're using pnpm
-pnpm install @ctrl/ngx-emoji-mart
+pnpm install @rubSR/ctrl-ngx-emoji-mart
 ```
 
 ## Dependencies
 
 Latest version available for each version of Angular
 
-| @ctrl/ngx-emoji-mart | Angular   |
-| -------------------- | --------- |
-| 1.0.6                | 8.x       |
-| 3.1.0                | 9.x       |
-| 5.1.2                | 10.x 11.x |
-| 6.2.0                | 12.x 13.x |
-| 7.1.0                | 14.x      |
-| 8.2.0                | 15.x      |
-| current              | >=16.x    |
+| @rubSR/ctrl-ngx-emoji-mart | Angular   |
+|----------------------------|-----------|
+| 1.0.6                      | 8.x       |
+| 3.1.0                      | 9.x       |
+| 5.1.2                      | 10.x 11.x |
+| 6.2.0                      | 12.x 13.x |
+| 7.1.0                      | 14.x      |
+| 8.2.0                      | 15.x      |
+| current                    | >=16.x    |
 
 ## Components
 
@@ -40,7 +40,7 @@ Latest version available for each version of Angular
 Add `PickerComponent` to your module imports:
 
 ```ts
-import { PickerComponent } from '@ctrl/ngx-emoji-mart';
+import { PickerComponent } from '@rubSR/ctrl-ngx-emoji-mart';
 
 @NgModule({
   imports: [PickerComponent],
@@ -59,7 +59,7 @@ export class AppComponent {}
 Import styles in `styles.scss`:
 
 ```scss
-@import '@ctrl/ngx-emoji-mart/picker';
+@import '@rubSR/ctrl-ngx-emoji-mart/picker';
 ```
 
 Or bundle those styles through `angular.json` configuration:
@@ -69,7 +69,7 @@ Or bundle those styles through `angular.json` configuration:
   "options": {
     "styles": [
       "src/styles.scss",
-      "node_modules/@ctrl/ngx-emoji-mart/picker.css"
+      "node_modules/@rubSR/ctrl-ngx-emoji-mart/picker.css"
     ]
   }
 }
@@ -88,7 +88,7 @@ Now we can use the `emoji-mart` component:
 ```
 
 | Prop                        | Default                   | Description                                                                                                                                                                              |
-| --------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **autoFocus**               | `false`                   | Auto focus the search input when mounted                                                                                                                                                 |
 | **color**                   | `#ae65c5`                 | The top bar anchors select and hover color                                                                                                                                               |
 | **emoji**                   | `department_store`        | emoji shown when no emojis are hovered, set to an empty string to show nothing                                                                                                           |
@@ -160,7 +160,7 @@ skintones: {
 Sheets are served from [unpkg](https://unpkg.com), a global CDN that serves files published to [npm](https://www.npmjs.com).
 
 | Set      | sheetSize | Size    |
-| -------- | --------- | ------- |
+|----------|-----------|---------|
 | apple    | 16        | 334 KB  |
 | apple    | 20        | 459 KB  |
 | apple    | 32        | 1.08 MB |
@@ -220,7 +220,7 @@ Sheets are served from [unpkg](https://unpkg.com), a global CDN that serves file
 Add `EmojiComponent` to your module or standalone component `imports`:
 
 ```ts
-import { EmojiComponent } from '@ctrl/ngx-emoji-mart/ngx-emoji';
+import { EmojiComponent } from '@rubSR/ctrl-ngx-emoji-mart/ngx-emoji';
 ```
 
 ```html
@@ -229,22 +229,22 @@ import { EmojiComponent } from '@ctrl/ngx-emoji-mart/ngx-emoji';
 <ngx-emoji emoji="santa" set="emojione" size="16"></ngx-emoji>
 ```
 
-| Prop                                         | Required | Default                   | Description                                                                                                      |
+| Prop | Required | Default | Description |
 | -------------------------------------------- | :------: | ------------------------- | ---------------------------------------------------------------------------------------------------------------- | --- |
-| **emoji**                                    |    ✓     |                           | Either a string or an `emoji` object                                                                             |
-| **size**                                     |    ✓     |                           | The emoji width and height.                                                                                      |
-| **isNative**                                 |          | `false`                   | Renders the native unicode emoji                                                                                 |
-| **(emojiClick)**                             |          |                           | Params: `{ emoji, $event }`                                                                                      |
-| **(emojiLeave)**                             |          |                           | Params: `{ emoji, $event }`                                                                                      |
-| **(emojiOver)**                              |          |                           | Params: `{ emoji, $event }`                                                                                      |
-| [**fallback**](#unsupported-emojis-fallback) |          |                           | Params: `(emoji, props) => {}`                                                                                   |
-| **set**                                      |          | `apple`                   | The emoji set: `'apple', 'google', 'twitter', 'emojione'`                                                        |
-| **sheetSize**                                |          | `64`                      | The emoji [sheet size](#sheet-sizes): `16, 20, 32, 64`                                                           |
-| **backgroundImageFn**                        |          | `((set, sheetSize) => …)` | Fn that returns that image sheet to use for emojis. Useful for avoiding a request if you have the sheet locally. |
-| **skin**                                     |          | `1`                       | Skin color: `1, 2, 3, 4, 5, 6`                                                                                   |
-| **tooltip**                                  |          | `false`                   | Show emoji short name when hovering (title)                                                                      |     |
-| **hideObsolete**                             |          | `false`                   | Hides ex: "cop" emoji in favor of female and male emoji                                                          |     |
-| **useButton**                                |          | `false`                   | Uses button element instead of span                                                                              |     |
+| **emoji**                                    | ✓ | | Either a string or an `emoji` object |
+| **size**                                     | ✓ | | The emoji width and height. |
+| **isNative**                                 | | `false`                   | Renders the native unicode emoji |
+| **(emojiClick)**                             | | | Params: `{ emoji, $event }`                                                                                      |
+| **(emojiLeave)**                             | | | Params: `{ emoji, $event }`                                                                                      |
+| **(emojiOver)**                              | | | Params: `{ emoji, $event }`                                                                                      |
+| [**fallback**](#unsupported-emojis-fallback) | | | Params: `(emoji, props) => {}`                                                                                   |
+| **set**                                      | | `apple`                   | The emoji set: `'apple', 'google', 'twitter', 'emojione'`                                                        |
+| **sheetSize**                                | | `64`                      | The emoji [sheet size](#sheet-sizes): `16, 20, 32, 64`                                                           |
+| **backgroundImageFn**                        | | `((set, sheetSize) => …)` | Fn that returns that image sheet to use for emojis. Useful for avoiding a request if you have the sheet locally. |
+| **skin**                                     | | `1`                       | Skin color: `1, 2, 3, 4, 5, 6`                                                                                   |
+| **tooltip**                                  | | `false`                   | Show emoji short name when hovering (title)                                                                      | |
+| **hideObsolete**                             | | `false`                   | Hides ex: "cop" emoji in favor of female and male emoji | |
+| **useButton**                                | | `false`                   | Uses button element instead of span | |
 
 #### Unsupported emojis fallback
 
@@ -299,7 +299,7 @@ const customEmojis = [
 The `Picker` doesn’t have to be mounted for you to take advantage of the advanced search results.
 
 ```ts
-import { EmojiSearch } from '@ctrl/ngx-emoji-mart';
+import { EmojiSearch } from '@rubSR/ctrl-ngx-emoji-mart';
 
 class ex {
   constructor(private emojiSearch: EmojiSearch) {
@@ -326,7 +326,7 @@ By default EmojiMart will store user chosen skin and frequently used emojis in `
 Possible keys are:
 
 | Key        | Value                            | Description                                                                                                     |
-| ---------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+|------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | skin       | `1, 2, 3, 4, 5, 6`               |                                                                                                                 |
 | frequently | `{ 'astonished': 11, '+1': 22 }` | An object where the key is the emoji name and the value is the usage count                                      |
 | last       | 'astonished'                     | (Optional) Used by `frequently` to be sure the latest clicked emoji will always appear in the “Recent” category |

@@ -1,4 +1,4 @@
-import { Emoji, EmojiComponent, EmojiService } from '@ctrl/ngx-emoji-mart/ngx-emoji';
+import { Emoji, EmojiComponent, EmojiService } from '@rubSR/ctrl-ngx-emoji-mart/ngx-emoji';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -156,7 +156,8 @@ export class CategoryComponent implements OnChanges, OnInit, AfterViewInit {
     public ref: ChangeDetectorRef,
     private emojiService: EmojiService,
     private frequently: EmojiFrequentlyService,
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.updateRecentEmojis();

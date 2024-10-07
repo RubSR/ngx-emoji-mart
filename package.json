@@ -1,6 +1,9 @@
 {
-  "name": "@ctrl/ngx-emoji-mart",
-  "version": "0.0.0-placeholder",
+  "name": "rubsr-ngx-emoji-mart",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -24,7 +27,6 @@
     "cy:run": "cypress run",
     "e2e:ci": "cross-env CI=true start-test serve:integration:static 4200 cy:run"
   },
-  "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "18.2.5",
     "@angular-eslint/builder": "18.2.0",
@@ -75,7 +77,7 @@
     "typescript": "5.5.4",
     "zone.js": "0.14.10"
   },
-  "repository": "scttcper/ngx-emoji-mart",
+  "repository": "RubSR/ngx-emoji-mart",
   "engines": {
     "node": ">=18.10"
   },

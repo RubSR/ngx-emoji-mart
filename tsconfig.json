@@ -17,9 +17,14 @@
     "useDefineForClassFields": false,
     "target": "es2022",
     "module": "es2020",
-    "lib": ["es2022", "dom"],
+    "lib": [
+      "es2022",
+      "dom"
+    ],
     "paths": {
-      "@ctrl/ngx-emoji-mart/ngx-emoji": ["./src/lib/picker/ngx-emoji/index"]
+      "@rubSR/ctrl-ngx-emoji-mart/ngx-emoji": [
+        "./src/lib/picker/ngx-emoji/index"
+      ]
     }
   },
   "angularCompilerOptions": {
@@ -27,5 +32,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": false
   },
-  "exclude": ["cypress"]
+  "exclude": [
+    "cypress"
+  ]
 }

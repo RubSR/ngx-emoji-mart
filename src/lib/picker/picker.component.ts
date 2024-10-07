@@ -18,13 +18,7 @@ import {
   ViewChildren,
 } from '@angular/core';
 
-import {
-  categories,
-  Emoji,
-  EmojiCategory,
-  EmojiData,
-  EmojiEvent,
-} from '@ctrl/ngx-emoji-mart/ngx-emoji';
+import { categories, Emoji, EmojiCategory, EmojiData, EmojiEvent } from '@rubSR/ctrl-ngx-emoji-mart/ngx-emoji';
 import { CategoryComponent } from './category.component';
 import { EmojiFrequentlyService } from './emoji-frequently.service';
 import { PreviewComponent } from './preview.component';
@@ -157,7 +151,8 @@ export class PickerComponent implements OnInit, OnDestroy {
     private ref: ChangeDetectorRef,
     private frequently: EmojiFrequentlyService,
     @Inject(PLATFORM_ID) private platformId: string,
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     // measure scroll
@@ -168,7 +163,7 @@ export class PickerComponent implements OnInit, OnDestroy {
     this.skin =
       JSON.parse(
         (isPlatformBrowser(this.platformId) && localStorage.getItem(`${this.NAMESPACE}.skin`)) ||
-          'null',
+        'null',
       ) || this.skin;
 
     const allCategories = [...categories];
@@ -272,14 +267,14 @@ export class PickerComponent implements OnInit, OnDestroy {
       this.ref.detectChanges();
 
       isPlatformBrowser(this.platformId) &&
-        this.ngZone.runOutsideAngular(() => {
-          // The `updateCategoriesSize` doesn't change properties that are used
-          // in templates, thus this is run in the context of the root zone to avoid
-          // running change detection.
-          requestAnimationFrame(() => {
-            this.updateCategoriesSize();
-          });
+      this.ngZone.runOutsideAngular(() => {
+        // The `updateCategoriesSize` doesn't change properties that are used
+        // in templates, thus this is run in the context of the root zone to avoid
+        // running change detection.
+        requestAnimationFrame(() => {
+          this.updateCategoriesSize();
         });
+      });
     });
 
     this.ngZone.runOutsideAngular(() => {
@@ -311,6 +306,7 @@ export class PickerComponent implements OnInit, OnDestroy {
       this.activeCategories = categoriesToMakeActive;
     }
   }
+
   updateCategoriesSize() {
     this.categoryRefs.forEach(component => component.memoizeSize());
 
@@ -321,6 +317,7 @@ export class PickerComponent implements OnInit, OnDestroy {
       this.clientWidth = target.clientWidth;
     }
   }
+
   handleAnchorClick($event: { category: EmojiCategory; index: number }) {
     this.updateCategoriesSize();
     this.selected = $event.category.name;
@@ -352,9 +349,11 @@ export class PickerComponent implements OnInit, OnDestroy {
       componentToScroll?.handleScroll(this.scrollRef.nativeElement.scrollTop);
     }
   }
+
   categoryTrack(index: number, item: any) {
     return item.id;
   }
+
   handleScroll(noSelectionChange = false) {
     if (this.nextScroll) {
       this.selected = this.nextScroll;
@@ -448,6 +447,7 @@ export class PickerComponent implements OnInit, OnDestroy {
       });
     }
   }
+
   handleEmojiOver($event: EmojiEvent) {
     if (!this.showPreview || !this.previewRef) {
       return;
